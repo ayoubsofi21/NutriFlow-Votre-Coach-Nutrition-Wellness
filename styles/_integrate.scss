@@ -1,0 +1,33 @@
+.integreContainer {
+  background: linear-gradient(to bottom, #f0e14a, #57c785);
+  padding: 20px;
+  border-radius: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0%;
+}
+.integreContainer .goHome a {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 50%;
+  text-decoration: none;
+}
+.allImage {
+  height: 200px;
+  width: 150px;
+  display: flex;
+}
+.allImage .firstImg,
+.secondImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+}
+.allImage .secondImg {
+  padding-top: 80px;
+  width: 100%;
+  height: 60%;
+}

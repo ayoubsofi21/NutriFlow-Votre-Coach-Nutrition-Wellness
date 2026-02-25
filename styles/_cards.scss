@@ -1,0 +1,52 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+header h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+header p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.loader-container {
+  margin-top: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 10px solid #ddf8e8; /* Light grey background */
+  border-top: 10px solid #57c785; /* Green color for the progress */
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-container p {
+  font-size: 1.4rem;
+  color: #888;
+}
+
+.user-profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
