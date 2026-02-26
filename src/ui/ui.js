@@ -33,52 +33,25 @@ export function Header() {
     </header>`;
 }
 export function home() {
-  return `<div class="home-container">
+  return `<div class="data-container">
+            <div class="search-bar">
+              <i class="fas fa-search"></i>
+              <input type="text" placeholder="Search" />
+              <button class="filter-btn">
+                <i class="fas fa-sliders-h"></i>
+              </button>
+            </div>
 
-  <!-- 🔍 Search Bar -->
-  <div class="search-bar">
-    <i class="fas fa-search"></i>
-    <input type="text" placeholder="Search" />
-    <button class="filter-btn">
-      <i class="fas fa-sliders-h"></i>
-    </button>
-  </div>
+            <div class="categories">
+              <button class="active">All</button>
+              <button>Combos</button>
+              <button>Sliders</button>
+              <button>Classic</button>
+            </div>
+               <div class="cards">
+                </div>
 
-  <!-- 🟢 Categories -->
-  <div class="categories">
-    <button class="active">All</button>
-    <button>Combos</button>
-    <button>Sliders</button>
-    <button>Classic</button>
-  </div>
 
-  <!-- 🍔 Cards Grid -->
-  <div class="cards">
-
-    <div class="card">
-      <img src="images/pizza.png" />
-      <h3>Cheeseburger</h3>
-      <p>Wendy's Burger</p>
-      <div class="card-footer">
-        <span class="cal green">cal : 200</span>
-        <i class="far fa-heart"></i>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/burger1.png" />
-      <h3>Hamburger</h3>
-      <p>Veggie Burger</p>
-      <div class="card-footer">
-        <span class="cal orange">cal : 401</span>
-        <i class="far fa-heart"></i>
-      </div>
-    </div>
-
-  </div>
-
-</div>`;
-}
-export function render() {
-  window.location.reload();
+           
+        </div>`;
 }

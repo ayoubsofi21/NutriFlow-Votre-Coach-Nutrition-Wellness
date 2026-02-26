@@ -1,10 +1,17 @@
 import { integration, footer, home, Header } from "./ui/ui.js";
+import { render } from "./ui/render.js";
+import { fetchAndDisplayData } from "./api/recipeProvider.js";
+function init() {
+  render(home, fetchAndDisplayData); // Render HTML first
+  //   fetchAndDisplayData(); //  Then fetch data
+}
 
 const routes = {
-  "/": integration,
-  "/home": () => `
+  //   "/": integration,
+  "/": () => `
     ${Header()}
     ${home()}
+    ${fetchAndDisplayData()}
     ${footer()}
   `,
   "/detail": () => ` ${Header() + footer()}`,
@@ -19,3 +26,4 @@ function router() {
 
 window.addEventListener("hashchange", router);
 router();
+init();
