@@ -1,0 +1,6 @@
+export function loader() {
+  return `<div class="loader-container">
+      <div class="loader"></div>
+      <p>Loading...</p>
+    </div>`;
+}
