@@ -1,5 +1,6 @@
 import { integration, footer, home, Header } from "./ui/ui.js";
 import { fetchAndDisplayData, searchRecipes } from "./api/recipeProvider.js";
+import { renderRecipes } from "./ui/render.js";
 
 const routes = {
   "/": () => `
@@ -50,7 +51,8 @@ function SearchListener() {
       const query = e.target.value;
       searchRecipes(query)
         .then((recipes) => {
-          console.log(recipes);
+          // console.log(recipes);
+          renderRecipes(recipes);
         })
         .catch((err) => {
           console.error("Error searching recipes:", err);
