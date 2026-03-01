@@ -36,7 +36,7 @@ export function home() {
   return `<div class="data-container">
             <div class="search-bar">
               <i class="fas fa-search"></i>
-              <input type="text" placeholder="Search" />
+              <input type="text" placeholder="Search" id='search-input' />
               <button class="filter-btn">
                 <i class="fas fa-sliders-h"></i>
               </button>

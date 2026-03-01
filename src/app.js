@@ -1,27 +1,22 @@
 import { integration, footer, home, Header } from "./ui/ui.js";
-import { fetchAndDisplayData } from "./api/recipeProvider.js";
+import { fetchAndDisplayData, searchRecipes } from "./api/recipeProvider.js";
 
 const routes = {
-  //   "/":
-  //    () => `
-  //       ${integration()}
-  //     `,
-
   "/": () => `
-    ${Header()}
-    ${home()}
-    ${footer()}
-  `,
+      ${Header()}
+      ${home()}
+      ${footer()}
+    `,
 
   "/detail": () => `
-    ${Header()}
-    ${footer()}
-  `,
+      ${Header()}
+      ${footer()}
+    `,
 
   "/favorite": () => `
-    ${Header()}
-    ${footer()}
-  `,
+      ${Header()}
+      ${footer()}
+    `,
 };
 
 function router() {
@@ -39,8 +34,29 @@ function router() {
 
   if (path === "/") {
     fetchAndDisplayData();
+    SearchListener();
   }
 }
 
 window.addEventListener("hashchange", router);
 window.addEventListener("load", router);
+document.addEventListener("DOMContentLoaded", fetchAndDisplayData);
+
+// Search functionality
+function SearchListener() {
+  const searchInput = document.querySelector("#search-input");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value;
+      searchRecipes(query)
+        .then((recipes) => {
+          console.log(recipes);
+        })
+        .catch((err) => {
+          console.error("Error searching recipes:", err);
+        });
+    });
+  } else {
+    console.error("Search input not found!");
+  }
+}
