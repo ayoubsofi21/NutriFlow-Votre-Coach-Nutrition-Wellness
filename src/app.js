@@ -1,6 +1,7 @@
 import { integration, footer, home, Header } from "./ui/ui.js";
 import { fetchAndDisplayData, searchRecipes } from "./api/recipeProvider.js";
 import { renderRecipes } from "./ui/render.js";
+// import { loader } from "../ui/loader.js";
 
 const routes = {
   "/": () => `
@@ -32,7 +33,8 @@ function router() {
   const view = routes[path] || (() => "<h1>404</h1>");
 
   app.innerHTML = view();
-
+  // const cardsContainer = document.querySelector(".cards");
+  // cardsContainer.innerHTML = loader();
   if (path === "/") {
     fetchAndDisplayData();
     SearchListener();

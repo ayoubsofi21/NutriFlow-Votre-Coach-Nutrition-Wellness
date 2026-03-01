@@ -1,6 +1,8 @@
+import { loader } from "../ui/loader.js";
+
 export function renderRecipes(recipes) {
   const cardsContainer = document.querySelector(".cards");
-
+  cardsContainer.innerHTML = loader();
   if (!cardsContainer) {
     console.error(".cards container not found!");
     return;
