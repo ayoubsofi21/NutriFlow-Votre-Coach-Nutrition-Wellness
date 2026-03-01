@@ -49,9 +49,21 @@ export function home() {
               <button>Classic</button>
             </div>
                <div class="cards">
-                </div>
+                </div> 
+            <div id="recipe-modal" class="modal" style="display:none;">
+              <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 id="recipe-name"></h2>
+                <img id="recipe-image" src="" alt="" />
+                <p id="recipe-description"></p>
+                <h3>Ingredients</h3>
+                <ul id="recipe-ingredients"></ul>
+                <h3>Instructions</h3>
+                <p id="recipe-instructions"></p>
+              </div>
+            </div>
+        </div>
+       
 
-
-           
-        </div>`;
+        `;
 }

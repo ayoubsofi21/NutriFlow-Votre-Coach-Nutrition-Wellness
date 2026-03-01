@@ -1,10 +1,11 @@
 // @import url(_variables.scss);
-@import "variables";
-@import "integrate";
-@import "cards";
-@import "modal";
-@import "responsive";
-@import "footer";
+@use "variables";
+@use "integrate";
+@use "cards";
+@use "modal";
+@use "responsive";
+@use "footer";
+@use "detail";
 
 body {
   font-family: Arial, sans-serif;

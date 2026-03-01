@@ -1,42 +1,32 @@
-import { loader } from "../ui/loader.js"; // Correct path to loader.js from recipeProvider.js
+import { loader } from "../ui/loader.js";
+import { renderRecipes } from "../ui/render.js";
+
 const API_URL = "https://dummyjson.com/recipes";
 
 // Fetch and display all recipes
 export async function fetchAndDisplayData() {
   const cardsContainer = document.querySelector(".cards");
+
+  // Show loader while fetching data
   cardsContainer.innerHTML = loader();
+
   try {
-    // Fetch recipes from the API
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error("Failed to fetch recipes");
 
     const data = await response.json();
+
+    // Simulate a delay to show loader for 2 seconds
     setTimeout(() => {
-      // Clear the loader and show the data
-      cardsContainer.innerHTML = ""; // Remove loader
-      data.recipes.forEach((item) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
+      // Clear loader and show recipes
+      cardsContainer.innerHTML = ""; // Clear the loader
 
-        // Construct the card HTML
-        card.innerHTML = `
-          <img src="${item.image}" alt="${item.name}" />
-          <h3>${item.name}</h3>
-          <p>${item.cuisine || "Recipe"}</p>
-          <div class="card-footer">
-            <span class="cal orange">cal: ${item.caloriesPerServing || 0}</span>
-            <i class="far fa-heart"></i>
-          </div>
-        `;
-
-        // Append the card to the container
-        cardsContainer.appendChild(card);
-      });
+      // Call renderRecipes to display the recipes
+      renderRecipes(data.recipes);
     }, 2000);
   } catch (error) {
-    // Error handling if the fetch fails
     console.error("Error fetching recipes:", error);
-    cardsContainer.innerHTML = `<p>Error loading recipes</p>`; // Show error message
+    cardsContainer.innerHTML = "<p>Error loading recipes</p>"; // Show error message
   }
 }
 
@@ -62,4 +52,39 @@ export async function searchRecipes(query) {
     console.error("Error searching recipes:", error);
     return [];
   }
+}
+export function openRecipeModal(recipe) {
+  const modal = document.getElementById("recipe-modal");
+  const modalName = document.getElementById("recipe-name");
+  const modalImage = document.getElementById("recipe-image");
+  const modalDescription = document.getElementById("recipe-description");
+  const modalIngredients = document.getElementById("recipe-ingredients");
+  const modalInstructions = document.getElementById("recipe-instructions");
+  const closeBtn = document.querySelector(".close-btn");
+
+  // Populate modal with recipe data
+  modalName.innerText = recipe.name;
+  modalImage.src = recipe.image;
+  modalDescription.innerText = `Category: ${recipe.category || "No category"}`;
+  modalIngredients.innerHTML = recipe.ingredients
+    .map((ingredient) => `<li>${ingredient}</li>`)
+    .join(""); // Join ingredients in a list
+  modalInstructions.innerText = recipe.instructions;
+
+  console.log("Opening modal with recipe:", recipe.name); // Debugging log
+
+  // Show the modal
+  modal.style.display = "block"; // Make the modal visible
+
+  // Close modal on clicking the close button
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none"; // Close modal
+  });
+
+  // Close modal when clicking outside the modal content
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none"; // Close modal if clicked outside
+    }
+  });
 }
