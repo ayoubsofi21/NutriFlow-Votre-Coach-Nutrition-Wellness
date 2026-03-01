@@ -24,6 +24,7 @@
   overflow-y: auto;
   max-height: 90vh;
   position: relative;
+  margin: 0 auto; /* Center modal content */
 }
 
 /* Close Button Styling */
@@ -50,6 +51,7 @@
   margin-bottom: 10px;
   text-align: center;
   text-transform: capitalize;
+  word-wrap: break-word;
 }
 
 /* Recipe Image Styling */
@@ -59,6 +61,7 @@
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Ensures the image fits well */
 }
 
 /* Recipe Description Styling */
@@ -102,43 +105,63 @@ h3 {
   line-height: 1.6;
   margin-top: 20px;
   white-space: pre-line;
+  text-align: justify;
 }
 
-/* Modal Image and Text Layout */
-@media (min-width: 768px) {
-  .modal-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* To make modal content responsive */
-  #recipe-image {
-    width: 70%;
-    height: auto;
-    margin-bottom: 30px;
-  }
-
-  #recipe-name {
-    font-size: 36px;
-  }
-
-  h3 {
-    font-size: 26px;
-  }
-}
-
+/* Mobile responsiveness */
 @media (max-width: 768px) {
-  /* For small screens */
+  /* Modal Content */
+  .modal-content {
+    padding: 15px;
+    width: 90%;
+    max-width: 600px;
+  }
+
+  /* Recipe Image */
   #recipe-image {
     width: 100%;
+    height: auto;
   }
 
+  /* Recipe Name */
   #recipe-name {
     font-size: 28px;
   }
 
+  /* Ingredients & Instructions */
   h3 {
     font-size: 22px;
+  }
+
+  #recipe-ingredients li {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  #recipe-instructions {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For very small screens (phones in portrait mode) */
+  #recipe-name {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  #recipe-ingredients li {
+    font-size: 12px;
+  }
+
+  #recipe-instructions {
+    font-size: 12px;
+  }
+
+  .modal-content {
+    padding: 10px;
   }
 }

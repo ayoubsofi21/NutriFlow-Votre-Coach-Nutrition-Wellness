@@ -50,18 +50,27 @@ export function home() {
             </div>
                <div class="cards">
                 </div> 
-            <div id="recipe-modal" class="modal" style="display:none;">
+           <div id="recipe-modal" class="modal">
               <div class="modal-content">
                 <span class="close-btn">&times;</span>
-                <h2 id="recipe-name"></h2>
-                <img id="recipe-image" src="" alt="" />
-                <p id="recipe-description"></p>
+                <h2 id="recipe-name">Cheeseburger Wendy's Burger</h2>
+                <img id="recipe-image" src="images/burger.jpg" alt="Burger" />
+                <p id="recipe-description">The Cheeseburger Wendy's Burger is a classic fast food burger...</p>
                 <h3>Ingredients</h3>
-                <ul id="recipe-ingredients"></ul>
+                <ul id="recipe-ingredients">
+                  <li>Pizza dough</li>
+                  <li>Tomato sauce</li>
+                  <li>Fresh mozzarella cheese</li>
+                </ul>
                 <h3>Instructions</h3>
-                <p id="recipe-instructions"></p>
+                <p id="recipe-instructions">
+                  Preheat the oven to 475°F (245°C).<br />
+                  Roll out the pizza dough and spread tomato sauce evenly.<br />
+                  Top with slices of fresh mozzarella...
+                </p>
               </div>
             </div>
+
         </div>
        
 
